@@ -11,6 +11,6 @@
 
 @implementation Photo
 
-// Insert code here to add functionality to your managed object subclass
+// I added some code here.
 
 @end
