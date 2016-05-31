@@ -28,8 +28,8 @@
     [center removeObserver:self name:NSManagedObjectContextDidSaveNotification object:self.document.managedObjectContext];
 }
 
--(void)contextChanged:(id)context{
-    NSLog(@"contextChanged");
+-(void)contextChanged:(NSNotification *)notification{
+    NSLog(@"%@", notification.name);
 }
 
 - (void)test{
