@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF570F871CFE0DEA000F77B2 /* Photographer+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AF570F801CFE0DEA000F77B2 /* Photographer+CoreDataProperties.m */; };
+		AF570F881CFE0DEA000F77B2 /* Photographer.m in Sources */ = {isa = PBXBuildFile; fileRef = AF570F821CFE0DEA000F77B2 /* Photographer.m */; };
+		AF570F891CFE0DEA000F77B2 /* Photo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AF570F841CFE0DEA000F77B2 /* Photo+CoreDataProperties.m */; };
+		AF570F8A1CFE0DEA000F77B2 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = AF570F861CFE0DEA000F77B2 /* Photo.m */; };
 		AF6E6F531CFDE97000230CFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E6F521CFDE97000230CFF /* main.m */; };
 		AF6E6F561CFDE97000230CFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E6F551CFDE97000230CFF /* AppDelegate.m */; };
 		AF6E6F591CFDE97000230CFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6E6F581CFDE97000230CFF /* ViewController.m */; };
@@ -17,6 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF570F7F1CFE0DEA000F77B2 /* Photographer+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photographer+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AF570F801CFE0DEA000F77B2 /* Photographer+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photographer+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AF570F811CFE0DEA000F77B2 /* Photographer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photographer.h; sourceTree = "<group>"; };
+		AF570F821CFE0DEA000F77B2 /* Photographer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photographer.m; sourceTree = "<group>"; };
+		AF570F831CFE0DEA000F77B2 /* Photo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AF570F841CFE0DEA000F77B2 /* Photo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AF570F851CFE0DEA000F77B2 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		AF570F861CFE0DEA000F77B2 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		AF6E6F4E1CFDE97000230CFF /* CoreDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6E6F521CFDE97000230CFF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AF6E6F541CFDE97000230CFF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,6 +56,14 @@
 		AF6E6F451CFDE97000230CFF = {
 			isa = PBXGroup;
 			children = (
+				AF570F7F1CFE0DEA000F77B2 /* Photographer+CoreDataProperties.h */,
+				AF570F801CFE0DEA000F77B2 /* Photographer+CoreDataProperties.m */,
+				AF570F811CFE0DEA000F77B2 /* Photographer.h */,
+				AF570F821CFE0DEA000F77B2 /* Photographer.m */,
+				AF570F831CFE0DEA000F77B2 /* Photo+CoreDataProperties.h */,
+				AF570F841CFE0DEA000F77B2 /* Photo+CoreDataProperties.m */,
+				AF570F851CFE0DEA000F77B2 /* Photo.h */,
+				AF570F861CFE0DEA000F77B2 /* Photo.m */,
 				AF6E6F681CFDE98100230CFF /* Model.xcdatamodeld */,
 				AF6E6F501CFDE97000230CFF /* CoreDataExample */,
 				AF6E6F4F1CFDE97000230CFF /* Products */,
@@ -155,6 +175,10 @@
 				AF6E6F591CFDE97000230CFF /* ViewController.m in Sources */,
 				AF6E6F561CFDE97000230CFF /* AppDelegate.m in Sources */,
 				AF6E6F531CFDE97000230CFF /* main.m in Sources */,
+				AF570F891CFE0DEA000F77B2 /* Photo+CoreDataProperties.m in Sources */,
+				AF570F8A1CFE0DEA000F77B2 /* Photo.m in Sources */,
+				AF570F871CFE0DEA000F77B2 /* Photographer+CoreDataProperties.m in Sources */,
+				AF570F881CFE0DEA000F77B2 /* Photographer.m in Sources */,
 				AF6E6F6A1CFDE98100230CFF /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +330,7 @@
 				AF6E6F671CFDE97000230CFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

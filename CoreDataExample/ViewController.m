@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "Photo.h"
+#import "Photographer.h"
+
 @import CoreData;
 
 @interface ViewController ()
@@ -37,7 +40,7 @@
     // Get a URL for the file we want to create.
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
-    NSString *documentName = @"MyDocument";
+    NSString *documentName = @"MyDocument2";
     NSURL *url = [documentsDirectory URLByAppendingPathComponent:documentName];
     
     // Create our instance. This does not open or create the underlying file.
@@ -76,12 +79,22 @@
         NSManagedObjectContext *context = self.document.managedObjectContext;
         
         // Insert a photo.
-        NSManagedObject *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
-        [photo setValue:@"Photo1" forKey:@"title"];
-        NSLog(@"%@", photo);
+        NSManagedObject *photo1 = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
+        [photo1 setValue:@"Photo1" forKey:@"title"];
+        NSLog(@"%@", photo1);
         
-        NSString *title = [photo valueForKey:@"title"];
-        NSLog(@"photo.title is %@", title);
+        NSString *title1 = [photo1 valueForKey:@"title"];
+        NSLog(@"photo1.title is %@", title1);
+        
+        // Strongly typed
+        Photo *photo2 = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
+        photo2.title = @"Photo2";
+        photo2.whotook = [NSEntityDescription insertNewObjectForEntityForName:@"Photographer" inManagedObjectContext:context];
+        photo2.whotook.name = @"Photographer1";
+        NSLog(@"%@", photo2);
+        
+        NSString *title2 = [photo2 valueForKey:@"title"];
+        NSLog(@"photo2.title is %@", title2);
     }
 }
 
