@@ -22,6 +22,16 @@
     [self test];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    // Optionally remove the listener.
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self name:NSManagedObjectContextDidSaveNotification object:self.document.managedObjectContext];
+}
+
+-(void)contextChanged:(id)context{
+    NSLog(@"contextChanged");
+}
+
 - (void)test{
     
     // Get a URL for the file we want to create.
@@ -32,6 +42,10 @@
     
     // Create our instance. This does not open or create the underlying file.
     self.document = [[UIManagedDocument alloc] initWithFileURL:url];
+    
+    // Optionally listen for the save notification.
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(contextChanged:) name:NSManagedObjectContextDidSaveNotification object:self.document.managedObjectContext];
     
     // If the document already exists on disk, we'll try and open it ...
     if([fileManager fileExistsAtPath:[url path]]){
