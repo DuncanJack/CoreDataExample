@@ -76,26 +76,52 @@
 - (void)documentIsReady{
     NSLog(@"documentIsReady");
     if(self.document.documentState == UIDocumentStateNormal){
-        NSManagedObjectContext *context = self.document.managedObjectContext;
         
-        // Insert a photo.
-        NSManagedObject *photo1 = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
-        [photo1 setValue:@"Photo1" forKey:@"title"];
-        NSLog(@"%@", photo1);
+        [self insertAndDeleteExample];
         
-        NSString *title1 = [photo1 valueForKey:@"title"];
-        NSLog(@"photo1.title is %@", title1);
-        
-        // Strongly typed
-        Photo *photo2 = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
-        photo2.title = @"Photo2";
-        photo2.whotook = [NSEntityDescription insertNewObjectForEntityForName:@"Photographer" inManagedObjectContext:context];
-        photo2.whotook.name = @"Photographer1";
-        NSLog(@"%@", photo2);
-        
-        NSString *title2 = [photo2 valueForKey:@"title"];
-        NSLog(@"photo2.title is %@", title2);
+        [self queryExample];
     }
+}
+
+-(void)insertAndDeleteExample{
+    NSManagedObjectContext *context = self.document.managedObjectContext;
+    
+    // Insert a photo.
+    NSManagedObject *photo1 = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
+    [photo1 setValue:@"Photo1" forKey:@"title"];
+    NSLog(@"%@", photo1);
+    
+    NSString *title1 = [photo1 valueForKey:@"title"];
+    NSLog(@"photo1.title is %@", title1);
+    
+    // Strongly typed.
+    Photo *photo2 = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
+    photo2.title = @"Photo2";
+    photo2.whotook = [NSEntityDescription insertNewObjectForEntityForName:@"Photographer" inManagedObjectContext:context];
+    photo2.whotook.name = @"Photographer1";
+    NSLog(@"%@", photo2);
+    
+    NSString *title2 = [photo2 valueForKey:@"title"];
+    NSLog(@"photo2.title is %@", title2);
+    
+    // Delete.
+    [context deleteObject:photo2];
+    photo2 = nil;
+}
+
+- (void)queryExample{
+    NSManagedObjectContext *context = self.document.managedObjectContext;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    request.fetchBatchSize = 20;
+    request.fetchLimit = 100;
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedStandardCompare:)]];
+    request.predicate = [NSPredicate predicateWithFormat:@"title contains %@", @"1"];
+    
+    NSError *error;
+    NSArray *photos = [context executeFetchRequest:request error:&error];
+        
+    NSLog(@"There are %lu photos", [photos count]);
 }
 
 @end
